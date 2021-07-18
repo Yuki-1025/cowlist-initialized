@@ -1,18 +1,22 @@
 import React from "react";
 
-class Cow extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isclicked: false
-    }
-  }
+function Cow (props) {
 
-  render () {
-    return (
-      <li>{this.props.cow.name}</li>
-    )
-  }
+  // handleSelect(e) {
+  //   console.log('THIS IS EVENT ', e.target.dataset.user);
+  //   this.props.selectCow(e.target.value);
+  // }
+
+
+  return (
+
+    <li className="cow-name" onClick={() => props.selectCow(props.cow)}>{props.cow.name}</li>
+
+
+  )
+
 };
 
 export default Cow;
+
+//this.props.cow.name

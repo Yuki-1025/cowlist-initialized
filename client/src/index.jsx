@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      cowList: []
+      cowList: [],
+      selectedCow: {}
     }
   }
 
@@ -39,11 +40,33 @@ class App extends React.Component {
       })
   }
 
+  selectCow(selected) {
+    console.log(selected);
+    // let currentSelect = {};
+    // currentSelect.name = selectedname;
+    let cows = this.state.cowList;
+    // for (var i = 0; i < cows.length; i++) {
+    //   if (cows[i].name === selectedname) {
+    //     currentSelect.description = cows[i].name;
+    //   }
+    // }
+    this.setState({
+      cowList: cows,
+      selectedCow: selected
+    });
+  }
   render() {
+    let selected = this.state.selectedCow;
+    if (selected) {
+      var popup = <div><div>{selected.name}</div><div>{selected.description}</div></div>
+    }
     return (
     <div>
       <div>
-        <CowList cows={this.state.cowList}/>
+        {popup}
+      </div>
+      <div>
+        <CowList cows={this.state.cowList} selectCow={this.selectCow.bind(this)}/>
       </div>
       <div>
         <NewCow submitNewCow={this.submitNewCow.bind(this)}/>

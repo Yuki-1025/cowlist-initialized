@@ -5,9 +5,11 @@ function CowList (props) {
 
   return (
     <ul>
+
       {props.cows.map((cow, i) => {
-        return <Cow key={i} cow={cow} />
+        return <Cow key={i} cow={cow} selectCow={props.selectCow}/>
       })}
+
     </ul>
   )
 };

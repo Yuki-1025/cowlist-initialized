@@ -20,7 +20,7 @@ class NewCow extends React.Component {
     newcow.name = e.target[2].value;
     newcow.description = e.target[3].value;
     // console.log('button was clicked!')
-    // console.log(e.target[3].value);
+    //console.log(e.target[0].value);
     this.props.submitNewCow(newcow);
   }
 
